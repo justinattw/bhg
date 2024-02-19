@@ -10,3 +10,5 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+black-hat-go-go-programming-for-hackers-and-pentesters_compress.pdf
