@@ -6,6 +6,8 @@ import (
 	"os"
 )
 
+// Use Stdin and Stdout to create wrapper Read/ Write functions for custom types FooReader and FooWriter
+
 // FooReader defines an io.Reader to read from stdin.
 type FooReader struct{}
 
@@ -32,7 +34,7 @@ func main() {
 	)
 
 	// Create buffer to hold input/output.
-	input := make([]byte, 4096)
+	input := make([]byte, 4096) // Create a slice of size 4096 bytes
 
 	// Use reader to read input.
 	s, err := reader.Read(input)

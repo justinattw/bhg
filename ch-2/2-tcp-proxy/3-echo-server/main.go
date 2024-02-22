@@ -12,6 +12,8 @@ func echo(conn net.Conn) {
 
 	// Create a buffer to store received data.
 	b := make([]byte, 512)
+
+	// Indefinite loop
 	for {
 		// Receive data via conn.Read into a buffer.
 		size, err := conn.Read(b[0:])
@@ -42,9 +44,11 @@ func main() {
 		log.Fatalln("Unable to bind to port")
 	}
 	log.Println("Listening on 0.0.0.0:20080")
+
+	// Infinite loop ensures server will continue to listen for connections even after one has been received
 	for {
 		// Wait for connection. Create net.Conn on connection established.
-		conn, err := listener.Accept()
+		conn, err := listener.Accept() // This function blocks execution as it awaits client connections
 		log.Println("Received connection")
 		if err != nil {
 			log.Fatalln("Unable to accept connection")
